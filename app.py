@@ -54,7 +54,7 @@ def listar_categorias():
         for fila in datos:
             categoria = {'idcategoria':fila[0], 'nombre':fila[1]}
             categorias.append(categoria)
-        return jsonify({'productos':categorias, 'mensaje':"Categorias listadas."})
+        return jsonify({'categoria':categorias, 'mensaje':"Categorias listadas."})
     except Exception as ex:
         return jsonify({'mensaje':"Error"})
 
