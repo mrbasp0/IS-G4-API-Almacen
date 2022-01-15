@@ -1,14 +1,19 @@
+import os
 from flask import Flask, json, jsonify, request
 from flask_mysqldb import MySQL
 from flask_cors import CORS, cross_origin
 
 from config import config
 
+_port = os.environ.get('PORT', 5000)
 app = Flask(__name__)
 cors = CORS(app)
 conexion = MySQL(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+@app.route('/')
+def hello():
+    return "Hello World!"
 
 @app.route('/api/productos', methods=['GET'])
 @cross_origin()
@@ -135,4 +140,4 @@ def pagina_no_encontrada(error):
 if __name__ == '__main__':
     app.config.from_object(config['development'])
     app.register_error_handler(404, pagina_no_encontrada)
-    app.run(port="5000")
+    app.run(host='0.0.0.0',port=_port)
