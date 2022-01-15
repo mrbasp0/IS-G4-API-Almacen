@@ -31,7 +31,7 @@ def listar_productos():
     except Exception as ex:
         return jsonify({'mensaje':"Error"})
 
-@app.route('/api/productos/<codigo>', methods=['GET'])
+@app.route('/api/producto/<codigo>', methods=['GET'])
 @cross_origin()
 def leer_producto(codigo):
     try:
