@@ -26,7 +26,7 @@ def listar_productos():
     except Exception as ex:
         return jsonify({'mensaje':"Error"})
 
-@app.route('/api/producto/<codigo>', methods=['GET'])
+@app.route('/api/productos/<codigo>', methods=['GET'])
 @cross_origin()
 def leer_producto(codigo):
     try:
@@ -125,7 +125,7 @@ def verificar():
             else:
                 return jsonify({'mensaje': "Producto no encontrado."})
        else:
-           return jsonify({'mensaje': "No ha solicitado nada para verificar."})
+            return jsonify({'mensaje': "No ha solicitado nada para verificar."})
     except Exception as ex:
         return json({'mensaje': "Error"})
 
